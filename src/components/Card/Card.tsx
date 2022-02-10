@@ -1,15 +1,30 @@
 import React from "react";
-import logoAos from '../../assets/images/aos-logo.png'
 
-const Card = () => {
+import { ICard } from './cardInterface';
+
+interface CardProps {
+    name: ICard['name'],
+    imgCard: ICard['cardImage']
+    price: ICard['price']
+}
+
+const Card = ({name , imgCard, price }: CardProps) => {
 
     return (
         <div className="card">
-            <h2>Is coming</h2>
             <img
-                src={logoAos}
+                src={imgCard}
                 alt="logo"
             />
+            <h2>{name}</h2>
+            <div>
+                <p>{price}</p>
+                <div>
+                    <button>Ajouter au pagnier</button>
+                    <button>Liste de cadeaux</button>
+                </div>
+            </div>
+
         </div>
     );
 };
